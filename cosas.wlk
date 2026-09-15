@@ -55,6 +55,28 @@ object bateriaAntiaerea {
 }
 
 
+object contenedor {
+
+    var contenido = []
+
+    method cargar(cosa) {
+
+        contenido.add(cosa)
+    }
+
+    method descargar(cosa) {
+
+        contenido.remove(cosa)
+    }
+
+
+    method peso() = 100 + contenido.sum({c => c.peso()})
+
+    method objetoMasPeligroso() = contenido.max({c => c.peligrosidad()})
+
+    method peligrosidad() = self.objetoMasPeligroso().peligrosidad()
+}
+
 
 object residuosRadioactivos {
 
